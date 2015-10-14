@@ -2,14 +2,20 @@
 
 Ghost is a free, open, simple blogging platform. Visit the project's website at <http://ghost.org>, or read the docs on <http://support.ghost.org>.
 
+## Developing Locally
+```
+npm install
+npm start
+```
+**npm install** will override any local theme changes so do not run it unless you want this to happen.
+
+Please note that the theme is copied into `/content/themes/casper` but this is not saved into git.
+To update the actual theme make changes to the [repo](https://github.com/drinklynk/Saga) of the theme.
+
 ## Deploying on Heroku
-
-To get your own Ghost blog running on Heroku, click the button below:
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/cobyism/ghost-on-heroku)
-
-Fill out the form, and you should be cooking with gas in a few seconds.
-
+```
+git push heroku master
+```
 ### Things you should know
 
 - After deployment, visit the admin area at `YOURAPPNAME.herokuapp.com/ghost` to set up your blog.
