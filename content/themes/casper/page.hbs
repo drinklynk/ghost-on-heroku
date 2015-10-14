@@ -1,31 +1,22 @@
 {{!< default}}
-
-{{! This is a page template. A page outputs content just like any other post, and has all the same
-    attributes by default, but you can also customise it to behave differently if you prefer. }}
-
-{{! Everything inside the #post tags pulls data from the page }}
-{{#post}}
-
-<header class="main-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
-    <nav class="main-nav {{#if image}}overlay{{/if}} clearfix">
-        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
-        {{#if @blog.navigation}}
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        {{/if}}
-    </nav>
+{{#post ~}}
+<header id="header" class="animated fadeIn"{{#if image}} style="background-image: url({{image}})"{{/if}}>
+    <div class="header-background">
+    <section class="blog-content">
+        <a id="site-url" class="blog-title" href="{{@blog.url}}">{{@blog.title}}</a>
+        <span class="blog-description">{{@blog.description}}</span>
+        {{> links}}
+    </section>
+    <section class="header-content">
+        <h1 class="post-title animated fadeInUp">{{{title}}}</h1>
+    </section>
+    </div>
 </header>
-
-<main class="content" role="main">
-    <article class="{{post_class}}">
-
-        <header class="post-header">
-            <h1 class="post-title">{{title}}</h1>
-        </header>
-
+<main id="main" class="content">
+    <article class="animated fadeIn content post {{post_class}}">
         <section class="post-content">
             {{content}}
         </section>
-
     </article>
 </main>
-{{/post}}
+{{~/post}}
